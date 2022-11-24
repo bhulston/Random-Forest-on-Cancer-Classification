@@ -1,4 +1,14 @@
 # Classifying-as-Benign-or-Malignant-with-Decision-Trees
+REFERENCES:
+*    Induction of Decision Trees - https://link.springer.com/article/10.1007/BF00116251
+
+*    [Scikit Learn](https://scikit-learn.org/stable/modules/tree.html) decision tree documentation
+*   [Breast Cancer dataset](https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/) - UCI Machine learning database
+*   [Medium article ](https://medium.com/@chyun55555/decision-tree-classifier-with-scikit-learn-from-python-e83f38079fea) for modeling decision trees
+*  [Hands-On Machine Learning book](https://www.amazon.com/Hands-Machine-Learning-Scikit-Learn-TensorFlow/dp/1491962291) for decision trees and random forests
+* [ Medium article](https://medium.com/@jaimejcheng/data-exploration-and-visualization-with-seaborn-pair-plots-40e6d3450f6d) for Seaborn pair plots
+
+
 
 This is a dataset with 10 features, that describe features derived from images of breast masses. They describe the characteristics of the cell nuclei
 
