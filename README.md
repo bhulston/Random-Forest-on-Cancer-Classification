@@ -8,7 +8,20 @@ REFERENCES:
 *  [Hands-On Machine Learning book](https://www.amazon.com/Hands-Machine-Learning-Scikit-Learn-TensorFlow/dp/1491962291) for decision trees and random forests
 * [ Medium article](https://medium.com/@jaimejcheng/data-exploration-and-visualization-with-seaborn-pair-plots-40e6d3450f6d) for Seaborn pair plots
 
+Here are some of the pros and cons of decision trees:
+----------------------------------------------------------
 
+Advantages
+*   Decision trees are logarithmic in cost, meaning that this is not very intensive, especially when used on high-features datasets in comparison with other models.
+*   White box, meaning that we can actually understand how this works
+*   Minimal data preparation needed
+
+Disadvantages
+*   Prone to overfit, we could prune to see if that helps
+*   Slightly unstable, there might be better trees that represent the true population better
+*   Requires a balanced dataset without "inadequate" attributes. Meaning we can't have several examples where the same set of attributes are indicative of different classes 
+
+----------------------------------------------------------
 
 This is a dataset with 10 features, that describe features derived from images of breast masses. They describe the characteristics of the cell nuclei
 
