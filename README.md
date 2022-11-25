@@ -24,9 +24,11 @@ We also standardize the values, though it's helpful to note that for decision tr
 ## The data
 
 Below is a pair plot that shows the relationships between the size attributes. I thought this was important because from my personal knowledge, size is a common indicator of malignant tumors
+
 <img width="379" alt="size_pair_plot" src="https://user-images.githubusercontent.com/79114425/203873082-dfdfae80-10d9-4ca1-81f7-d0a6d1f92aaf.png">
 
 Below is the distribution of (some!) of the features, split by the benign and malignant. As you can see, malignant tumors are generally associated with larger values for the given attributes
+
 <img width="334" alt="Feature_deistribution" src="https://user-images.githubusercontent.com/79114425/203873400-305029e8-3a7c-4934-877a-e70d10aed3ef.png">
 
 
@@ -36,14 +38,19 @@ We check this in the code, finding that though there are some duplicates (where 
 ## The model
 
 The model we use is a classification decision tree from scikit-learn which uses the CART algorithm. Meaning that these are binary trees, where each leaf only has up to two children. If we built this with an ID3 algorithm based model, we might see different results
+
 <img width="821" alt="9depth_decision_tree" src="https://user-images.githubusercontent.com/79114425/203873712-9ff66cf5-8e48-47f9-b4c4-226a91514cbe.png">
 
 Running it initially, we find that there is a depth of 9, and an accuracy of 94.16%. We improve on this by customizing some of the default hyper-parameters in scikitlearn.
-First we increase the values of min_samples_leaf and min_samples_split, which increases the value of accuracy to 95.62%
+First we increase the values of min_samples_leaf and min_samples_split, which increases the value of accuracy to 95.62%. Just sets some requirements for when to split and for leaves to be created
 
 Doing this is a form of regularization, that reduces overfitting of the model when running it against the test set. In general, increasing the min_* features and decreasing the max_* features will regularize the model.
 
 Note that these values might change because there is some probability in how trees are constructed, leading to slightly different results.
+
+Finally, we see that the most important factor seems to be the size uniformity.
+
+<img width="327" alt="feature_importance" src="https://user-images.githubusercontent.com/79114425/203880676-ce176bc9-782c-4ed9-985f-f30034dbc08a.png">
 
 ## Hyperparameter tuning
 We further tune the hyperparameters by optimzing the max_depth. We test depths from 4 to 9, seeing as how there was depth of 9 when no limit was set. This is another form of preventing overfitting.
