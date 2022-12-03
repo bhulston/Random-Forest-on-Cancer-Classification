@@ -24,25 +24,28 @@ Disadvantages
 ----------------------------------------------------------
 
 This is a dataset with 10 features, that describe features derived from images of breast masses. They describe the characteristics of the cell nuclei
+* Each object in the dataset has a value of 2 or 4, 2 for benign and 4 for objects that are malignant.
+* The goal is to correctly classify an object based on its attributes.
 
-Each object in the dataset has a value of 2 or 4, 2 for benign and 4 for objects that are malignant.
+## Data cleaning Pipeline with Scikit-Learn
+<img width="429" alt="image" src="https://user-images.githubusercontent.com/79114425/205465831-27353650-3d34-4ed7-b336-c8731b1cc674.png">
+* We create a class using BaseEstimator to include in a scikit learn pipeline that deals with certain values in the data, primarily making certain values numeric, and dealing with the nulls
+ * The class does not need to have code that gets initialized. Because this is a transformer, we don't need to add any code in the fit function
 
-The goal is to correctly classify an object based on its attributes.
+<img width="249" alt="image" src="https://user-images.githubusercontent.com/79114425/205465861-150f1b95-642e-4daa-b2f0-47b70052a183.png">
 
-## Data cleaning
-We remove the id as it is not helpful, remove null values, and set the results column as a binary 0,1 for benign, malignant.
-
-We also standardize the values, though it's helpful to note that for decision trees this step isn't really necessary
+* We also add a MinMaxScaler in the pipeline so this can be used for other models we might make as well, and to deal with the diagnosis column (which has values as 2 or 4 currently). The result is that malignant masses will have a value of 1, and 0 for benign masses
 
 ## The data
 
-Below is a pair plot that shows the relationships between the size attributes. I thought this was important because from my personal knowledge, size is a common indicator of malignant tumors
-
 <img width="379" alt="size_pair_plot" src="https://user-images.githubusercontent.com/79114425/203873082-dfdfae80-10d9-4ca1-81f7-d0a6d1f92aaf.png">
 
-Below is the distribution of (some!) of the features, split by the benign and malignant. As you can see, malignant tumors are generally associated with larger values for the given attributes
+> A pair plot that shows the relationships between the size attributes. I thought this was important because from my personal knowledge, size is a common indicator of malignant tumors
 
 <img width="334" alt="Feature_deistribution" src="https://user-images.githubusercontent.com/79114425/203873400-305029e8-3a7c-4934-877a-e70d10aed3ef.png">
+
+> Below is the distribution of (some!) of the features, split by the benign and malignant. As you can see, malignant tumors are generally associated with larger values for the given attributes
+
 
 
 Another thing I checked was the "adequacy" of the data. Based on a research paper, "Induction of Decision Trees" written by J.R. Quinlan, it is ideal for decision trees to be used in datasets where the same set of attributes of an object, always results in the same classification
@@ -50,7 +53,9 @@ We check this in the code, finding that though there are some duplicates (where 
 
 ## The model
 
-The model we use is a classification decision tree from scikit-learn which uses the CART algorithm. Meaning that these are binary trees, where each leaf only has up to two children. If we built this with an ID3 algorithm based model, we might see different results
+The model we use is a classification decision tree from scikit-learn which uses the CART algorithm. 
+* Meaning that these are binary trees, where each leaf only has up to two children. 
+* If we built this with an ID3 algorithm based model, we might see different results
 
 <img width="821" alt="9depth_decision_tree" src="https://user-images.githubusercontent.com/79114425/203873712-9ff66cf5-8e48-47f9-b4c4-226a91514cbe.png">
 
