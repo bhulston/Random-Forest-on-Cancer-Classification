@@ -29,8 +29,9 @@ This is a dataset with 10 features, that describe features derived from images o
 
 ## Data cleaning Pipeline with Scikit-Learn
 <img width="429" alt="image" src="https://user-images.githubusercontent.com/79114425/205465831-27353650-3d34-4ed7-b336-c8731b1cc674.png">
+
 * We create a class using BaseEstimator to include in a scikit learn pipeline that deals with certain values in the data, primarily making certain values numeric, and dealing with the nulls
- * The class does not need to have code that gets initialized. Because this is a transformer, we don't need to add any code in the fit function
+* The class does not need to have code that gets initialized. Because this is a transformer, we don't need to add any code in the fit function
 
 <img width="249" alt="image" src="https://user-images.githubusercontent.com/79114425/205465861-150f1b95-642e-4daa-b2f0-47b70052a183.png">
 
