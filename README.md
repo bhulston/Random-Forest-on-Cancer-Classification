@@ -81,7 +81,21 @@ Because of the differences from each run, we run the models 100 times and take t
 
 ## Conclusion
 
-We find that the optimal max_depth is 6! by a small margin. By regularizing and tuning, we were able to improve the overall model accuracy to nearly 96%
+We find that the optimal max_depth is 6! by a small margin. By regularizing and tuning, we were able to improve the overall model accuracy to nearly 95%
+
+## Random Forest
+
+![image](https://user-images.githubusercontent.com/79114425/216666097-d44bb0a2-e6bb-4b90-9d17-59ddb80439de.png)
+
+Built a random forest from scratch that has a few hyperparameters we can use for adjusting the forest construction. Main ones to note are feature_split and max_samples.
+* max_samples affects how many samples are used in the bootstrapping method for each tree in the forest
+* feature_split defines how many features each tree will be randomly assigned. We use the squareroot, log, and all features depending on the parameter. 
+
+By implementing a random forest with 128 trees, we actually see an increase of accuracy on the testing data from 95% to nearly 98%!
+
+We also can access items in the cache of the forest, including the original predictions for each tree on each sample.
+
+Thanks for reading:D
 
 
 
